@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Artvision Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<script src="layout.js"></script>
+
+<!-- ══════════════════ PAGE HERO ══════════════════ -->
+<div class="page-hero">
+  <canvas id="particle-canvas" style="width:100%;height:100%;"></canvas>
+  <div style="position:relative;z-index:2;text-align:center;">
+    <div class="section-tag" style="margin-bottom:1.2rem;">The Creative Behind The Work</div>
+    <h1 class="page-hero-title">About <span>Me</span></h1>
+    <p class="page-hero-sub" style="margin:0 auto;">Artist. Storyteller. Visual thinker. Crafting beauty from pixels.</p>
+  </div>
+</div>
+
+<!-- ══════════════════ ABOUT SECTION ══════════════════ -->
+<div class="section">
+  <div class="about-grid">
+
+    <!-- Portrait -->
+    <div class="about-portrait reveal-left">
+      <div class="about-portrait-wrap">
+        <!-- Placeholder portrait with gradient art -->
+        <div style="
+          width:100%; height:100%; min-height:460px;
+          background: linear-gradient(160deg, #1a0533 0%, #6b21a8 40%, #e879f9 80%, #c084fc 100%);
+          display:flex; align-items:center; justify-content:center;
+          font-family:'Syne',sans-serif; font-size:8rem; color:rgba(255,255,255,0.12);
+          font-weight:800;
+        ">AR</div>
+        <div class="about-portrait-glow"></div>
+      </div>
+      <div class="about-portrait-badge">
+        <div class="badge-num">8+</div>
+        <div class="badge-label">Years of<br/>Art</div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="about-text reveal-right">
+      <div class="section-tag">Who I Am</div>
+      <h2 class="about-title">
+        Alex Rivera —<br/>
+        <span>Visual Artist</span><br/>
+        &amp; Creative Director
+      </h2>
+
+      <p class="about-desc">
+        Hello! I'm Alex Rivera, a visual artist and creative director based in New York City. 
+        My work lives at the intersection of fine art and digital design — I create brand 
+        identities, motion graphics, and immersive digital experiences that challenge 
+        conventional aesthetics.
+      </p>
+      <p class="about-desc">
+        Over 8 years I've collaborated with startups, Fortune 500 brands, and independent 
+        artists worldwide. My process is rooted in research and storytelling, then brought 
+        to life through meticulous craft.
+      </p>
+      <p class="about-desc">
+        When I'm not pushing pixels, I'm exploring urban environments with a film camera, 
+        studying vintage poster design, or teaching a weekly online art workshop.
+      </p>
+
+      <div class="about-tags">
+        <span class="about-tag">Brand Identity</span>
+        <span class="about-tag">Motion Design</span>
+        <span class="about-tag">Digital Illustration</span>
+        <span class="about-tag">Typography</span>
+        <span class="about-tag">UX / UI</span>
+        <span class="about-tag">Art Direction</span>
+        <span class="about-tag">Photography</span>
+      </div>
+
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Work With Me</a>
+        <a href="projects.html" class="btn btn-outline">See My Work</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════ VALUES CARDS ══════════════════ -->
+<div style="background:var(--bg-secondary); padding:1px 0;">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag reveal">My Philosophy</div>
+      <h2 class="section-title reveal reveal-delay-1">What Drives <span>My Work</span></h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.8rem;">
+
+      <div class="glass-card reveal reveal-delay-1" style="padding:2rem;">
+        <div style="font-size:2rem; margin-bottom:1rem;">✦</div>
+        <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:0.7rem;">Intentional Craft</h3>
+        <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.75;">Every pixel, kerning decision, and colour choice is deliberate. Good design isn't decoration — it's communication.</p>
+      </div>
+
+      <div class="glass-card reveal reveal-delay-2" style="padding:2rem;">
+        <div style="font-size:2rem; margin-bottom:1rem;">◈</div>
+        <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:0.7rem;">Story-First Thinking</h3>
+        <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.75;">I believe design without narrative is just decoration. Every project begins with understanding the human story it tells.</p>
+      </div>
+
+      <div class="glass-card reveal reveal-delay-3" style="padding:2rem;">
+        <div style="font-size:2rem; margin-bottom:1rem;">⬡</div>
+        <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:0.7rem;">Endless Curiosity</h3>
+        <p style="font-size:0.9rem;color:var(--text-muted);line-height:1.75;">Inspiration lives everywhere — in subway tiles, vintage ephemera, and organic textures. I never stop looking and learning.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ EXPERIENCE TIMELINE ══════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-tag reveal">My Journey</div>
+    <h2 class="section-title reveal reveal-delay-1">Experience &amp; <span>Education</span></h2>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem;">
+
+    <!-- Work -->
+    <div>
+      <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text-secondary);margin-bottom:2.5rem;letter-spacing:0.02em;">WORK EXPERIENCE</h3>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2021 — Present</div>
+          <div class="timeline-role">Creative Director</div>
+          <div class="timeline-company">Studio Luminary, New York</div>
+          <div class="timeline-desc">Lead a team of 6 designers on brand identity and motion projects for global clients including finance, tech, and entertainment brands.</div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2018 — 2021</div>
+          <div class="timeline-role">Senior Visual Designer</div>
+          <div class="timeline-company">Apex Digital Agency</div>
+          <div class="timeline-desc">Crafted UI/UX systems, illustration libraries, and campaign visuals for 30+ product launches across SaaS and e-commerce sectors.</div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2016 — 2018</div>
+          <div class="timeline-role">Junior Designer & Illustrator</div>
+          <div class="timeline-company">Freelance / Independent</div>
+          <div class="timeline-desc">Kickstarted career through freelance commissions, building a portfolio across editorial illustration, logo design, and print collateral.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div>
+      <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text-secondary);margin-bottom:2.5rem;letter-spacing:0.02em;">EDUCATION</h3>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2012 — 2016</div>
+          <div class="timeline-role">BFA — Graphic Design</div>
+          <div class="timeline-company">Parsons School of Design, NYC</div>
+          <div class="timeline-desc">Graduated Summa Cum Laude. Thesis project "Chromatic Futures" exhibited at MoMA PS1 student showcase.</div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2019</div>
+          <div class="timeline-role">Motion Design Certification</div>
+          <div class="timeline-company">School of Motion</div>
+          <div class="timeline-desc">Intensive 12-week program covering After Effects, Cinema 4D, and professional motion workflow for broadcast and digital.</div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2022</div>
+          <div class="timeline-role">Creative Leadership Program</div>
+          <div class="timeline-company">IDEO Design Thinking</div>
+          <div class="timeline-desc">Executive program on human-centred design strategy, team leadership, and building creative culture in organisations.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

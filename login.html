@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Artvision Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /*
+     * BUG 3 FIX — Login & Register overlap
+     * Single .auth-card with two .auth-panel children.
+     * Only [data-active] panel is in document flow.
+     */
+    .auth-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      z-index: 2;
+    }
+    .auth-panel {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: var(--radius-xl);
+      padding: 3rem 2.5rem;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.6), var(--glow-sm);
+      width: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      visibility: hidden;
+    }
+    .auth-panel[data-active] {
+      position: relative;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      visibility: visible;
+    }
+    @media (max-width: 480px) {
+      .auth-panel { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<script src="layout.js"></script>
+
+<main class="login-page">
+  <canvas id="particle-canvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+  <div class="login-bg"></div>
+
+  <div class="auth-card">
+
+    <!-- PANEL: LOGIN (active by default) -->
+    <div class="auth-panel" id="panel-login" data-active>
+      <div class="login-logo" style="text-align:center;margin-bottom:2rem;">
+        <a href="index.html" class="login-logo-text">Artvision.</a>
+      </div>
+      <h1 class="login-title">Welcome Back</h1>
+      <p class="login-sub">Sign in to access your creative dashboard</p>
+      <div id="server-response" class="server-response"></div>
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input class="form-input" type="text" name="username" placeholder="your_username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div style="position:relative;">
+            <input class="form-input" type="password" name="password" placeholder="••••••••" id="pw-input" autocomplete="current-password" style="padding-right:3rem;" required />
+            <button type="button" id="pw-toggle" aria-label="Toggle password visibility"
+              style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1rem;">👁</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;font-size:0.85rem;">
+          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;color:var(--text-muted);">
+            <input type="checkbox" style="accent-color:var(--purple-bright);" /> Remember me
+          </label>
+          <a href="#" style="color:var(--purple-glow);">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">
+          Sign In
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        </button>
+      </form>
+      <div class="login-divider">or</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1.5rem;">
+        <button class="btn btn-outline" style="justify-content:center;font-size:0.85rem;padding:0.7rem 1rem;">🌐 Google</button>
+        <button class="btn btn-outline" style="justify-content:center;font-size:0.85rem;padding:0.7rem 1rem;">🍎 Apple</button>
+      </div>
+      <div class="login-footer">
+        Don't have an account? <a href="#" id="go-register">Create one →</a>
+      </div>
+    </div>
+
+    <!-- PANEL: REGISTER (hidden by default — no data-active) -->
+    <div class="auth-panel" id="panel-register" aria-hidden="true">
+      <div class="login-logo" style="text-align:center;margin-bottom:2rem;">
+        <a href="index.html" class="login-logo-text">Artvision.</a>
+      </div>
+      <h2 class="login-title">Create Account</h2>
+      <p class="login-sub">Join the Artvision community</p>
+      <div id="register-response" class="server-response"></div>
+      <form id="register-form" novalidate>
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input class="form-input" type="text" name="reg_username" placeholder="choose_username" autocomplete="username" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input class="form-input" type="password" name="reg_password" placeholder="Create a strong password (6+ chars)" autocomplete="new-password" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <input class="form-input" type="password" name="reg_password_confirm" placeholder="Repeat your password" autocomplete="new-password" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem;">
+          Create Account
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        </button>
+      </form>
+      <div class="login-footer" style="margin-top:1.8rem;">
+        Already have an account? <a href="#" id="go-login">Sign in →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script>
+/* ================================================================
+   BUG 3 FIX — Single-panel view switcher
+   ================================================================ */
+const panelLogin    = document.getElementById('panel-login');
+const panelRegister = document.getElementById('panel-register');
+
+function showPanel(show, hide) {
+  hide.removeAttribute('data-active');
+  hide.setAttribute('aria-hidden', 'true');
+  requestAnimationFrame(() => {
+    show.setAttribute('data-active', '');
+    show.removeAttribute('aria-hidden');
+  });
+}
+
+document.getElementById('go-register')?.addEventListener('click', e => {
+  e.preventDefault();
+  showPanel(panelRegister, panelLogin);
+});
+document.getElementById('go-login')?.addEventListener('click', e => {
+  e.preventDefault();
+  showPanel(panelLogin, panelRegister);
+});
+
+/* Password toggle */
+const pwInput  = document.getElementById('pw-input');
+const pwToggle = document.getElementById('pw-toggle');
+pwToggle?.addEventListener('click', () => {
+  const hidden = pwInput.type === 'password';
+  pwInput.type = hidden ? 'text' : 'password';
+  pwToggle.textContent = hidden ? '🙈' : '👁';
+});
+
+/* Register submit */
+document.getElementById('register-form')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const username = e.target.reg_username.value.trim();
+  const password = e.target.reg_password.value;
+  const confirm  = e.target.reg_password_confirm.value;
+  const resp = document.getElementById('register-response');
+  const btn  = e.target.querySelector('button[type="submit"]');
+
+  if (!username || !password || !confirm) { authResp(resp, 'Please fill in all fields.', 'error'); return; }
+  if (password !== confirm)               { authResp(resp, 'Passwords do not match.', 'error'); return; }
+  if (password.length < 6)               { authResp(resp, 'Password must be at least 6 characters.', 'error'); return; }
+
+  btn.textContent = 'Creating…'; btn.disabled = true;
+  try {
+    const res  = await fetch('/register', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ username, password }) });
+    const data = await res.json();
+    if (res.ok) {
+      authResp(resp, '✓ Account created! Switching to login…', 'success');
+      setTimeout(() => showPanel(panelLogin, panelRegister), 1600);
+    } else { authResp(resp, data.message || 'Registration failed.', 'error'); }
+  } catch { authResp(resp, 'Server unavailable. Is node server.js running?', 'error'); }
+  btn.textContent = 'Create Account'; btn.disabled = false;
+});
+
+function authResp(el, msg, type) {
+  if (!el) return;
+  el.textContent = msg;
+  el.className = 'server-response ' + type;
+}
+</script>
+</body>
+</html>

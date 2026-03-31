@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artvision — Creative Portfolio</title>
+  <meta name="description" content="Award-winning visual artist and creative director. Explore stunning design, illustration, and motion work." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Injected: loading, cursor, navbar, footer -->
+<script src="layout.js"></script>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="home">
+  <canvas id="hero-particle-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+  <div class="hero-bg"></div>
+  <div class="hero-aura"></div>
+
+  <div class="hero-content">
+    <!-- Text -->
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Available for Freelance
+      </div>
+
+      <h1 class="hero-title">
+        Creating Art<br/>
+        That <span class="line-accent">Moves</span><br/>
+        <span class="hero-typing-wrap">
+          <span id="typing-text"></span><span class="cursor-blink"></span>
+
+        </h1>
+
+        
+      
+
+      <p class="hero-desc">
+        Award-winning visual artist and creative director crafting immersive
+        digital experiences, brand identities, and motion stories that leave a lasting impression.
+      </p>
+
+      <div class="hero-actions">
+        <a href="projects.html" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          View My Work
+        </a>
+        <a href="contact.html" class="btn btn-outline">
+          Let's Talk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">120+</div>
+          <div class="hero-stat-label">Projects Done</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">8yr</div>
+          <div class="hero-stat-label">Experience</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">40+</div>
+          <div class="hero-stat-label">Happy Clients</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="hero-visual">
+      <div class="hero-orb">
+        <div class="hero-orb-inner"></div>
+        <div class="hero-orb-text">Kumar<br/>Yashansh</div>
+      </div>
+      <div class="hero-floating-tag tag-1">🎨 Brand Identity</div>
+      <div class="hero-floating-tag tag-2">✦ Motion Design</div>
+      <div class="hero-floating-tag tag-3">◈ UX / UI</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FEATURED WORK
+══════════════════════════════════════ -->
+<section class="home-featured">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag reveal">Selected Work</div>
+      <h2 class="section-title reveal reveal-delay-1">Featured <span>Projects</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2">A curated selection of recent creative work spanning branding, digital art, and interactive design.</p>
+    </div>
+
+    <div class="featured-grid">
+
+      <!-- Card 1 -->
+      <div class="featured-card reveal reveal-delay-1">
+        <div class="featured-card-img" style="
+          background: linear-gradient(135deg, #1a0533 0%, #6b21a8 50%, #e879f9 100%);
+          width:100%; height:100%;
+          display:flex; align-items:center; justify-content:center;
+          font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; color:rgba(255,255,255,0.15);
+          letter-spacing:-0.05em;
+        ">◈</div>
+        <div class="featured-card-overlay">
+          <div>
+            <div class="featured-card-tag">Brand Identity</div>
+            <div class="featured-card-title">Luminary Brand System</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="featured-card reveal reveal-delay-2">
+        <div class="featured-card-img" style="
+          background: linear-gradient(135deg, #0f0f23 0%, #312e81 50%, #818cf8 100%);
+          width:100%; height:100%;
+          display:flex; align-items:center; justify-content:center;
+          font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; color:rgba(255,255,255,0.15);
+          letter-spacing:-0.05em;
+        ">✦</div>
+        <div class="featured-card-overlay">
+          <div>
+            <div class="featured-card-tag">Motion Design</div>
+            <div class="featured-card-title">Aurora Motion Reel</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="featured-card reveal reveal-delay-3">
+        <div class="featured-card-img" style="
+          background: linear-gradient(135deg, #0d0011 0%, #7c3aed 50%, #c084fc 100%);
+          width:100%; height:100%;
+          display:flex; align-items:center; justify-content:center;
+          font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; color:rgba(255,255,255,0.15);
+          letter-spacing:-0.05em;
+        ">⬡</div>
+        <div class="featured-card-overlay">
+          <div>
+            <div class="featured-card-tag">Digital Art</div>
+            <div class="featured-card-title">Neon Genesis Series</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;" class="reveal">
+      <a href="projects.html" class="btn btn-outline">View All Projects →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     QUICK CTA
+══════════════════════════════════════ -->
+<div class="home-cta-section">
+  <div class="section-tag reveal">Ready to Collaborate?</div>
+  <h2 class="section-title reveal reveal-delay-1" style="margin-top:1rem;">
+    Let's Build Something <span>Extraordinary</span>
+  </h2>
+  <p class="section-subtitle reveal reveal-delay-2" style="margin-top:1rem;">
+    From concept to final pixel — I bring visions to life with craft and intention.
+  </p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;" class="reveal reveal-delay-3">
+    <a href="contact.html" class="btn btn-primary">Start a Project</a>
+    <a href="about.html"   class="btn btn-outline">Learn About Me</a>
+  </div>
+  <footer class="footer">
+    <div class="footer-logo">Artvision.</div>
+    <p class="footer-text">
+      Crafted with passion &amp; pixels. &copy; ${new Date().getFullYear()} Artvision Portfolio.
+      Built by <a href="about.html">Alex Rivera</a>.
+    </p>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
